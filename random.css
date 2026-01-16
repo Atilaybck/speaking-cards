@@ -1,0 +1,162 @@
+/* random.css */
+
+/* ===============================
+   Random View (stacked cards)
+================================ */
+#cards.random-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0 !important;
+  min-height: 420px;
+  position: relative;
+}
+
+/* random mode: kart alanı */
+#cards.random-mode .card {
+  width: 260px;
+  max-width: 100%;
+  height: 300px;
+  touch-action: pan-y;
+}
+
+/* ✅ Default: alttaki kart HİÇ görünmesin */
+#cards.random-mode .card.card-next {
+  position: absolute;
+  transform: translateY(14px) scale(0.96);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+/* ✅ Sadece swipe sırasında alttaki hafif görünsün */
+#cards.random-mode.swiping-stack .card.card-next {
+  opacity: 0.35;
+  visibility: visible;
+}
+
+/* üst kart */
+#cards.random-mode .card.card-top {
+  position: absolute;
+  z-index: 2;
+}
+
+/* ✅ swipe bitince alttaki kart yukarı gelsin */
+#cards.random-mode .card.card-next.reveal {
+  transform: translateY(0px) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===============================
+   Swipe animations
+================================ */
+.card.swiping {
+  transition: none !important;
+}
+
+.card.fly-right {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translateX(420px) rotate(10deg) !important;
+  opacity: 0;
+}
+
+.card.fly-left {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translateX(-420px) rotate(-10deg) !important;
+  opacity: 0;
+}
+
+/* ===============================
+   ✅ RANDOM CONTROLS (Dosyalar)
+   🔑 SADECE hidden=false iken görünür
+================================ */
+
+/* hidden ise ASLA görünmez */
+#randomControls[hidden] {
+  display: none !important;
+}
+
+/* random-controls */
+.random-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0 !important;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+}
+
+/* normalde görünür (JS kontrol ediyor) */
+#randomControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0 !important;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+}
+
+/* ===============================
+   Pages popover
+================================ */
+.pages-popover {
+  position: absolute;
+  top: 100px;
+  width: 260px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  z-index: 60;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.pages-list {
+  display: grid;
+  gap: 10px;
+  padding: 8px 6px 14px;
+  max-height: calc(100vh - 320px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.page-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e8f0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: #38bdf8;
+}
+
+.pages-apply {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(2, 6, 23, 0.65);
+  color: #e2e8f0;
+  box-shadow: var(--shadow-md);
+}
+
+.pages-apply:hover {
+  filter: brightness(1.08);
+}

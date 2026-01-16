@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaking Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="stylesheet" href="random.css" />
+
+  <script src="landing.js" defer></script>
+  <script src="random.js" defer></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🗣️ Speaking Cards</h1>
+      <div class="controls">
+        <button id="reset" class="action-btn danger">Sıfırla</button>
+        <button id="unlearnedBtn" class="action-btn warning">Ezberlenmemiş</button>
+        <button id="randomBtn" class="action-btn success">Rastgele</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="paginationSection" class="pagination-section">
+        <div id="pageButtons" class="pagination-grid"></div>
+      </section>
+
+      <section class="cards-section">
+        <!-- Random controls -->
+        <div id="randomControls" class="random-controls" hidden>
+          <button id="randomPagesBtn" class="action-btn">Dosyalar</button>
+
+          <div id="randomPagesPopover" class="pages-popover" hidden>
+            <div id="randomPagesList" class="pages-list"></div>
+            <button id="applyRandomPages" class="pages-apply">
+              Seçimleri Yükle
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div id="cards"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===============================
+       Answer Modal
+  ================================ -->
+  <div id="answerModal" class="modal" hidden>
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close">✕</button>
+      <h3 id="modalQuestion"></h3>
+      <div id="modalAnswer"></div>
+    </div>
+  </div>
+</body>
+</html>
