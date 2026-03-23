@@ -10,7 +10,7 @@ let currentPage = 1;
 let showUnlearned = false;
 let showRandom = false;
 
-const totalPages = 35; // kaç dosyan varsa (page1..pageN) ona göre ayarla
+const totalPages = 38; // kaç dosyan varsa (page1..pageN) ona göre ayarla
 
 const getLS = (key) => JSON.parse(localStorage.getItem(key) || "[]");
 const setLS = (key, val) => localStorage.setItem(key, JSON.stringify(val));
